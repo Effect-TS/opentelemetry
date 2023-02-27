@@ -19,7 +19,6 @@ Added in v1.0.0
   - [currentSpan](#currentspan)
   - [currentTracer](#currenttracer)
   - [withSpan](#withspan)
-  - [withSpanOptions](#withspanoptions)
 
 ---
 
@@ -81,21 +80,14 @@ Added in v1.0.0
 
 ```ts
 export declare const withSpan: {
-  (name: string): <R, E, A>(self: Effect.Effect<R, E, A>) => Effect.Effect<R, E, A>
-  <R, E, A>(self: Effect.Effect<R, E, A>, name: string): Effect.Effect<R, E, A>
-}
-```
-
-Added in v1.0.0
-
-## withSpanOptions
-
-**Signature**
-
-```ts
-export declare const withSpanOptions: {
-  (name: string, options: OtelApi.SpanOptions): <R, E, A>(self: Effect.Effect<R, E, A>) => Effect.Effect<R, E, A>
-  <R, E, A>(self: Effect.Effect<R, E, A>, name: string, options: OtelApi.SpanOptions): Effect.Effect<R, E, A>
+  (name: string, options?: OtelApi.SpanOptions | undefined): <R, E, A>(
+    self: Effect.Effect<R, E, A>
+  ) => Effect.Effect<R, E, A>
+  <R, E, A>(self: Effect.Effect<R, E, A>, name: string, options?: OtelApi.SpanOptions | undefined): Effect.Effect<
+    R,
+    E,
+    A
+  >
 }
 ```
 
