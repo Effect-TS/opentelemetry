@@ -13,63 +13,162 @@ Added in v1.0.0
 <h2 class="text-delta">Table of contents</h2>
 
 - [utils](#utils)
-  - [Api](#api)
-  - [Tracer](#tracer)
-  - [currentApi](#currentapi)
-  - [currentSpan](#currentspan)
-  - [currentTracer](#currenttracer)
+  - [Api (type alias)](#api-type-alias)
+  - [Meter (interface)](#meter-interface)
+  - [Span (interface)](#span-interface)
+  - [SpanOptions (interface)](#spanoptions-interface)
+  - [Telemetry](#telemetry)
+  - [Telemetry (interface)](#telemetry-interface)
+  - [TelemetryTypeId](#telemetrytypeid)
+  - [TelemetryTypeId (type alias)](#telemetrytypeid-type-alias)
+  - [Tracer (interface)](#tracer-interface)
+  - [currentSpanOption](#currentspanoption)
+  - [currentSpanTag](#currentspantag)
+  - [currentTelemetryOption](#currenttelemetryoption)
+  - [currentTelemetryTag](#currenttelemetrytag)
   - [withSpan](#withspan)
 
 ---
 
 # utils
 
-## Api
+## Api (type alias)
 
 **Signature**
 
 ```ts
-export declare const Api: Layer.Layer<never, never, never>
+export type Api = typeof OtelApi
 ```
 
 Added in v1.0.0
 
-## Tracer
+## Meter (interface)
 
 **Signature**
 
 ```ts
-export declare const Tracer: (name: string, version?: string | undefined) => Layer.Layer<never, never, never>
+export interface Meter extends OtelApi.Meter {}
 ```
 
 Added in v1.0.0
 
-## currentApi
+## Span (interface)
 
 **Signature**
 
 ```ts
-export declare const currentApi: FiberRef.FiberRef<Option.Option<typeof OtelApi>>
+export interface Span extends OtelApi.Span {}
 ```
 
 Added in v1.0.0
 
-## currentSpan
+## SpanOptions (interface)
 
 **Signature**
 
 ```ts
-export declare const currentSpan: FiberRef.FiberRef<Option.Option<OtelApi.Span>>
+export interface SpanOptions extends OtelApi.SpanOptions {}
 ```
 
 Added in v1.0.0
 
-## currentTracer
+## Telemetry
 
 **Signature**
 
 ```ts
-export declare const currentTracer: FiberRef.FiberRef<Option.Option<OtelApi.Tracer>>
+export declare const Telemetry: ({
+  meter,
+  tracer,
+}: {
+  meter: { name: string; version?: string }
+  tracer: { name: string; version?: string }
+}) => Layer.Layer<never, never, Telemetry>
+```
+
+Added in v1.0.0
+
+## Telemetry (interface)
+
+**Signature**
+
+```ts
+export interface Telemetry {
+  readonly [TelemetryTypeId]: TelemetryTypeId
+  readonly api: Api
+  readonly tracer: Tracer
+  readonly meter: Meter
+}
+```
+
+Added in v1.0.0
+
+## TelemetryTypeId
+
+**Signature**
+
+```ts
+export declare const TelemetryTypeId: typeof TelemetryTypeId
+```
+
+Added in v1.0.0
+
+## TelemetryTypeId (type alias)
+
+**Signature**
+
+```ts
+export type TelemetryTypeId = typeof TelemetryTypeId
+```
+
+Added in v1.0.0
+
+## Tracer (interface)
+
+**Signature**
+
+```ts
+export interface Tracer extends OtelApi.Tracer {}
+```
+
+Added in v1.0.0
+
+## currentSpanOption
+
+**Signature**
+
+```ts
+export declare const currentSpanOption: (_: void) => Effect.Effect<never, never, Option<Span>>
+```
+
+Added in v1.0.0
+
+## currentSpanTag
+
+**Signature**
+
+```ts
+export declare const currentSpanTag: Context.Tag<Span>
+```
+
+Added in v1.0.0
+
+## currentTelemetryOption
+
+**Signature**
+
+```ts
+export declare const currentTelemetryOption: (_: void) => Effect.Effect<never, never, Option<Telemetry>>
+```
+
+Added in v1.0.0
+
+## currentTelemetryTag
+
+**Signature**
+
+```ts
+export declare const currentTelemetryTag: Context.Tag<Telemetry>
 ```
 
 Added in v1.0.0
