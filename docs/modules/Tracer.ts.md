@@ -28,7 +28,7 @@ Added in v1.0.0
 **Signature**
 
 ```ts
-export declare const make: (options: TracerOptions) => Tracer
+export declare const make: (options: TracerOptions) => Effect<never, never, Tracer>
 ```
 
 Added in v1.0.0
