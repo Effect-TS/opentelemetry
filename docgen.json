@@ -7,10 +7,10 @@
     "target": "ES2021",
     "lib": ["ES2021"],
     "paths": {
-      "@effect/io": ["./src/index.ts"],
-      "@effect/io/test/*": ["./test/*"],
-      "@effect/io/examples/*": ["./examples/*"],
-      "@effect/io/*": ["./src/*"]
+      "@effect/opentelemetry": ["./src/index.ts"],
+      "@effect/opentelemetry/test/*": ["./test/*"],
+      "@effect/opentelemetry/examples/*": ["./examples/*"],
+      "@effect/opentelemetry/*": ["./src/*"]
     }
   },
   "examplesCompilerOptions": {
@@ -19,10 +19,10 @@
     "target": "ES2021",
     "lib": ["ES2021"],
     "paths": {
-      "@effect/io": ["../../src/index.ts"],
-      "@effect/io/test/*": ["../../test/*"],
-      "@effect/io/examples/*": ["../../examples/*"],
-      "@effect/io/*": ["../../src/*"]
+      "@effect/opentelemetry": ["../../src/index.ts"],
+      "@effect/opentelemetry/test/*": ["../../test/*"],
+      "@effect/opentelemetry/examples/*": ["../../examples/*"],
+      "@effect/opentelemetry/*": ["../../src/*"]
     }
   }
 }

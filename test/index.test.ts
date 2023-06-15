@@ -1,30 +1,31 @@
 import * as Effect from "@effect/io/Effect"
-import * as Otel from "@effect/opentelemetry"
+import * as Tracer from "@effect/io/Tracer"
+import { OtelSpan } from "@effect/opentelemetry/internal_effect_untraced/tracer"
 import * as it from "@effect/opentelemetry/test/utils/extend"
+import * as Otel from "@effect/opentelemetry/Tracer"
 
-const Telemetry = Otel.Telemetry({
-  tracer: { name: "test-tracer" },
-  meter: { name: "test-meter" }
+const TracerLive = Otel.layer({
+  name: "test-tracer"
 })
 
-describe("Effect", () => {
-  describe("with Telemetry provided", () => {
+describe("Tracer", () => {
+  describe("provided", () => {
     it.effect("withSpan", () =>
-      Effect.provideSomeLayer(Telemetry)(
-        Otel.withSpan("ok")(
-          Effect.gen(function*($) {
-            const result = yield* $(Otel.currentSpanOption())
-            assert.deepEqual(result._tag, "Some")
+      Effect.provideSomeLayer(TracerLive)(
+        Tracer.withSpan("ok")(
+          Effect.gen(function*(_) {
+            const span = yield* _(Tracer.Span)
+            expect(span).instanceOf(OtelSpan)
           })
         )
       ))
   })
-  describe("with no Telemetry provided", () => {
+  describe("not provided", () => {
     it.effect("withSpan", () =>
-      Otel.withSpan("ok")(
-        Effect.gen(function*($) {
-          const result = yield* $(Otel.currentSpanOption())
-          assert.deepEqual(result._tag, "None")
+      Tracer.withSpan("ok")(
+        Effect.gen(function*(_) {
+          const span = yield* _(Tracer.Span)
+          expect(span).not.instanceOf(OtelSpan)
         })
       ))
   })
