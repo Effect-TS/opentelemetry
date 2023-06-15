@@ -17,9 +17,9 @@ export class OtelSpan implements Tracer.Span {
   status: Tracer.SpanStatus
 
   constructor(
-    tracer: OtelApi.Tracer,
     traceApi: OtelApi.TraceAPI,
     contextApi: OtelApi.ContextAPI,
+    tracer: OtelApi.Tracer,
     readonly name: string,
     readonly parent: Option<Tracer.ParentSpan>,
     startTime: number
@@ -88,7 +88,7 @@ export const make = (options: TracerOptions) => {
 
   return Tracer.make({
     span(name, parent, startTime) {
-      return new OtelSpan(tracer, api.trace, api.context, name, parent, startTime)
+      return new OtelSpan(api.trace, api.context, tracer, name, parent, startTime)
     }
   })
 }

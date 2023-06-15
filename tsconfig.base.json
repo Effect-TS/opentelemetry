@@ -12,9 +12,7 @@
     "preserveSymlinks": true,
     "moduleResolution": "node",
     "noEmit": false,
-    "lib": [
-      "ES2021"
-    ],
+    "lib": ["ES2021"],
     "sourceMap": true,
     "declarationMap": true,
     "strict": true,
@@ -27,7 +25,6 @@
     "allowJs": false,
     "checkJs": false,
     "forceConsistentCasingInFileNames": true,
-    "suppressImplicitAnyIndexErrors": true,
     "stripInternal": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
@@ -39,18 +36,10 @@
     "incremental": true,
     "removeComments": false,
     "paths": {
-      "@effect/opentelemetry": [
-        "./src/index.ts"
-      ],
-      "@effect/opentelemetry/test/*": [
-        "./test/*"
-      ],
-      "@effect/opentelemetry/examples/*": [
-        "./examples/*"
-      ],
-      "@effect/opentelemetry/*": [
-        "./src/*"
-      ]
+      "@effect/opentelemetry": ["./src/index.ts"],
+      "@effect/opentelemetry/test/*": ["./test/*"],
+      "@effect/opentelemetry/examples/*": ["./examples/*"],
+      "@effect/opentelemetry/*": ["./src/*"]
     },
     "plugins": [
       {
@@ -62,9 +51,5 @@
     ]
   },
   "include": [],
-  "exclude": [
-    "node_modules",
-    "build",
-    "lib"
-  ]
+  "exclude": ["node_modules", "build", "lib"]
 }
