@@ -1,5 +1,6 @@
 import type { Option } from "@effect/data/Option"
 import * as Cause from "@effect/io/Cause"
+import * as Effect from "@effect/io/Effect"
 import type { Exit } from "@effect/io/Exit"
 import * as Layer from "@effect/io/Layer"
 import * as Tracer from "@effect/io/Tracer"
@@ -82,16 +83,16 @@ export class OtelSpan implements Tracer.Span {
 }
 
 /** @internal */
-export const make = (options: TracerOptions) => {
-  const api = OtelApi
-  const tracer = api.trace.getTracer(options.name, options.version)
-
-  return Tracer.make({
-    span(name, parent, startTime) {
-      return new OtelSpan(api.trace, api.context, tracer, name, parent, startTime)
-    }
-  })
-}
+export const make = (options: TracerOptions) =>
+  Effect.map(
+    Effect.sync(() => OtelApi.trace.getTracer(options.name, options.version)),
+    (tracer) =>
+      Tracer.make({
+        span(name, parent, startTime) {
+          return new OtelSpan(OtelApi.trace, OtelApi.context, tracer, name, parent, startTime)
+        }
+      })
+  )
 
 /** @internal */
-export const layer = (options: TracerOptions) => Layer.succeed(Tracer.Tracer, make(options))
+export const layer = (options: TracerOptions) => Layer.effect(Tracer.Tracer, make(options))
