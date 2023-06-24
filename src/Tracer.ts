@@ -1,6 +1,9 @@
 /**
  * @since 1.0.0
  */
+import type { Effect } from "@effect/io/Effect"
+import type { Layer } from "@effect/io/Layer"
+import type { Tracer } from "@effect/io/Tracer"
 import * as internal from "@effect/opentelemetry/internal_effect_untraced/tracer"
 
 /**
@@ -16,10 +19,10 @@ export interface TracerOptions {
  * @since 1.0.0
  * @category constructors
  */
-export const make = internal.make
+export const make: (options: TracerOptions) => Effect<never, never, Tracer> = internal.make
 
 /**
  * @since 1.0.0
  * @category layers
  */
-export const layer = internal.layer
+export const layer: (options: TracerOptions) => Layer<never, never, never> = internal.layer

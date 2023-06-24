@@ -26,8 +26,8 @@ export class OtelSpan implements Tracer.Span {
     startTime: number
   ) {
     const active = contextApi.active()
-    this.span = parent._tag === "Some" ?
-      tracer.startSpan(
+    this.span = parent._tag === "Some"
+      ? tracer.startSpan(
         name,
         { startTime },
         traceApi.setSpanContext(active, {
@@ -36,8 +36,8 @@ export class OtelSpan implements Tracer.Span {
           isRemote: parent.value._tag === "ExternalSpan",
           traceFlags: OtelApi.TraceFlags.SAMPLED
         })
-      ) :
-      tracer.startSpan(name, { startTime }, active)
+      )
+      : tracer.startSpan(name, { startTime }, active)
     const spanContext = this.span.spanContext()
 
     this.spanId = spanContext.spanId
@@ -80,6 +80,10 @@ export class OtelSpan implements Tracer.Span {
     }
     this.span.end(endTime)
   }
+
+  event(name: string, attributes?: Record<string, string>) {
+    this.span.addEvent(name, attributes)
+  }
 }
 
 /** @internal */
@@ -89,10 +93,20 @@ export const make = (options: TracerOptions) =>
     (tracer) =>
       Tracer.make({
         span(name, parent, startTime) {
-          return new OtelSpan(OtelApi.trace, OtelApi.context, tracer, name, parent, startTime)
+          return new OtelSpan(
+            OtelApi.trace,
+            OtelApi.context,
+            tracer,
+            name,
+            parent,
+            startTime
+          )
         }
       })
   )
 
 /** @internal */
-export const layer = (options: TracerOptions) => Layer.effect(Tracer.Tracer, make(options))
+export const layer = (options: TracerOptions) =>
+  Layer.unwrapEffect(
+    Effect.map(make(options), Effect.setTracer)
+  )
