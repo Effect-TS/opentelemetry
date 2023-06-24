@@ -40,7 +40,7 @@ Added in v1.0.0
 **Signature**
 
 ```ts
-export declare const layer: (options: TracerOptions) => Layer<never, never, Tracer>
+export declare const layer: (options: TracerOptions) => Layer<never, never, never>
 ```
 
 Added in v1.0.0
