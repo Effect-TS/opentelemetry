@@ -1,3 +1,6 @@
+/**
+ * @since 1.0.0
+ */
 import * as Effect from "@effect/io/Effect"
 import * as Layer from "@effect/io/Layer"
 import type { NodeSDKConfiguration } from "@opentelemetry/sdk-node"
