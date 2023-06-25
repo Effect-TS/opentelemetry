@@ -1,3 +1,6 @@
+/**
+ * @since 1.0.0
+ */
 import { Tag } from "@effect/data/Context"
 import * as Layer from "@effect/io/Layer"
 import * as Resources from "@opentelemetry/resources"

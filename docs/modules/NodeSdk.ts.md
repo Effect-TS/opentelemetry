@@ -24,7 +24,9 @@ Added in v1.0.0
 **Signature**
 
 ```ts
-export declare const layer: (config: Partial<NodeSDKConfiguration>) => Layer.Layer<never, never, never>
+export declare const layer: (
+  config: Partial<Omit<NodeSDKConfiguration, 'resource' | 'serviceName'>>
+) => Layer.Layer<Resource, never, never>
 ```
 
 Added in v1.0.0

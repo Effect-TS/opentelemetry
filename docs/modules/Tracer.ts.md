@@ -1,6 +1,6 @@
 ---
 title: Tracer.ts
-nav_order: 2
+nav_order: 3
 parent: Modules
 ---
 
@@ -16,8 +16,6 @@ Added in v1.0.0
   - [make](#make)
 - [layers](#layers)
   - [layer](#layer)
-- [models](#models)
-  - [TracerOptions (interface)](#traceroptions-interface)
 
 ---
 
@@ -28,7 +26,7 @@ Added in v1.0.0
 **Signature**
 
 ```ts
-export declare const make: (options: TracerOptions) => Effect<never, never, Tracer>
+export declare const make: Effect<Resource, never, Tracer>
 ```
 
 Added in v1.0.0
@@ -40,22 +38,7 @@ Added in v1.0.0
 **Signature**
 
 ```ts
-export declare const layer: (options: TracerOptions) => Layer<never, never, never>
-```
-
-Added in v1.0.0
-
-# models
-
-## TracerOptions (interface)
-
-**Signature**
-
-```ts
-export interface TracerOptions {
-  readonly name: string
-  readonly version?: string
-}
+export declare const layer: Layer<Resource, never, never>
 ```
 
 Added in v1.0.0

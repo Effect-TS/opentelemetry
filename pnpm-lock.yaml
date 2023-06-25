@@ -20,6 +20,9 @@ importers:
       '@opentelemetry/resources':
         specifier: ^1.14.0
         version: 1.14.0(@opentelemetry/api@1.4.1)
+      '@opentelemetry/semantic-conventions':
+        specifier: ^1.14.0
+        version: 1.14.0
     optionalDependencies:
       '@opentelemetry/sdk-node':
         specifier: ^0.40.0
