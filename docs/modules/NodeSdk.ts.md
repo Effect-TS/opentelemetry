@@ -42,7 +42,7 @@ Added in v1.0.0
 ```ts
 export declare const layer: <R, E>(
   config: Effect.Effect<R, E, Partial<Omit<NodeSDKConfiguration, 'resource' | 'serviceName'>>>
-) => Layer.Layer<R | Resource, E, never>
+) => Layer.Layer<Resource | R, E, never>
 ```
 
 Added in v1.0.0

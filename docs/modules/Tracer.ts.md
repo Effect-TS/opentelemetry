@@ -14,8 +14,12 @@ Added in v1.0.0
 
 - [constructors](#constructors)
   - [make](#make)
+  - [makeExternalSpan](#makeexternalspan)
 - [layers](#layers)
   - [layer](#layer)
+- [tags](#tags)
+  - [TraceFlags](#traceflags)
+  - [TraceState](#tracestate)
 
 ---
 
@@ -31,6 +35,22 @@ export declare const make: Effect<Resource, never, Tracer>
 
 Added in v1.0.0
 
+## makeExternalSpan
+
+**Signature**
+
+```ts
+export declare const makeExternalSpan: (options: {
+  readonly name: string
+  readonly traceId: string
+  readonly spanId: string
+  readonly traceFlags?: Otel.TraceFlags
+  readonly traceState?: string
+}) => ExternalSpan
+```
+
+Added in v1.0.0
+
 # layers
 
 ## layer
@@ -39,6 +59,28 @@ Added in v1.0.0
 
 ```ts
 export declare const layer: Layer<Resource, never, never>
+```
+
+Added in v1.0.0
+
+# tags
+
+## TraceFlags
+
+**Signature**
+
+```ts
+export declare const TraceFlags: Tag<Otel.TraceFlags, Otel.TraceFlags>
+```
+
+Added in v1.0.0
+
+## TraceState
+
+**Signature**
+
+```ts
+export declare const TraceState: Tag<Otel.TraceState, Otel.TraceState>
 ```
 
 Added in v1.0.0
