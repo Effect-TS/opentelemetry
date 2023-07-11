@@ -1,19 +1,15 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
     dependencies:
       '@effect/data':
-        specifier: file:vendor/effect-data-0.14.0.tgz
-        version: file:vendor/effect-data-0.14.0.tgz
+        specifier: ^0.14.1
+        version: 0.14.1
       '@effect/io':
-        specifier: file:vendor/effect-io-0.31.4.tgz
-        version: file:vendor/effect-io-0.31.4.tgz
+        specifier: ^0.32.0
+        version: 0.32.0
       '@opentelemetry/api':
         specifier: ^1.4.1
         version: 1.4.1
@@ -787,6 +783,10 @@ packages:
       '@tsplus/stdlib': 0.2.8
     dev: true
 
+  /@effect/data@0.14.1:
+    resolution: {integrity: sha512-MV6nI65oYcm8eZHnC0GnwXdY2tvybeb2lKCVFg+j/R5KptCKaunc0hXtPaXUSZiRgKJNxRRoHGtNzR+dZ/yiiA==}
+    dev: false
+
   /@effect/docgen@0.1.2(@types/node@20.3.3)(typescript@5.1.6):
     resolution: {integrity: sha512-qy1pA8SKsqla7/35Q2NuUeT/VwO/olg9hdmmY929wSrKhRVVPOmnF4cbCvFxbykikYek0/6/thupSUenYV0DvQ==}
     engines: {node: '>=16.17.1'}
@@ -809,6 +809,12 @@ packages:
       - '@swc/wasm'
       - '@types/node'
     dev: true
+
+  /@effect/io@0.32.0:
+    resolution: {integrity: sha512-yV3z6f8YT6LDXzDNeOB9mcFeA4S8UBWIiw3XrGVq9fQ7Ija9bCb5ZnJjW/DdNOLdOsEcrIHex5DNjnLXRHbw+A==}
+    dependencies:
+      '@effect/data': 0.14.1
+    dev: false
 
   /@effect/language-service@0.0.19:
     resolution: {integrity: sha512-sKNVo031dkwLfe1jHZzdTiF1UXgLq1lAYd2JG7q416dlmMoxRcMXrZWyw6a/SxIDM0hyIJAEmrz5iUkQPcPdBQ==}
@@ -7778,16 +7784,6 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  file:vendor/effect-data-0.14.0.tgz:
-    resolution: {integrity: sha512-0iduvC3N8RiR+VuLZ9YlYdgthF8rwsnajCi9BZYgTQ+xzjem4wKT5pcPQEudrcJYkw2QgLd8SYPMWqhpNJ+1tg==, tarball: file:vendor/effect-data-0.14.0.tgz}
-    name: '@effect/data'
-    version: 0.14.0
-    dev: false
-
-  file:vendor/effect-io-0.31.4.tgz:
-    resolution: {integrity: sha512-dD+NzEuXpmJ9iNW8suYsjl385R8XZmVygVDRcKCdSKjsAfKLxxJWY7QhBXUGrVTRpRHYOJyvBxOq50YiEy8NRg==, tarball: file:vendor/effect-io-0.31.4.tgz}
-    name: '@effect/io'
-    version: 0.31.4
-    dependencies:
-      '@effect/data': file:vendor/effect-data-0.14.0.tgz
-    dev: false
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

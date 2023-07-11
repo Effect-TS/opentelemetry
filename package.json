@@ -56,8 +56,8 @@
     }
   },
   "dependencies": {
-    "@effect/data": "file:vendor/effect-data-0.14.0.tgz",
-    "@effect/io": "file:vendor/effect-io-0.31.4.tgz",
+    "@effect/data": "^0.14.1",
+    "@effect/io": "^0.32.0",
     "@opentelemetry/api": "^1.4.1",
     "@opentelemetry/resources": "^1.14.0",
     "@opentelemetry/semantic-conventions": "^1.14.0"
