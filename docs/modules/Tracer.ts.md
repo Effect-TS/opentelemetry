@@ -17,6 +17,8 @@ Added in v1.0.0
   - [makeExternalSpan](#makeexternalspan)
 - [layers](#layers)
   - [layer](#layer)
+- [supervisor](#supervisor)
+  - [OtelSupervisor](#otelsupervisor)
 - [tags](#tags)
   - [TraceFlags](#traceflags)
   - [TraceState](#tracestate)
@@ -59,6 +61,20 @@ Added in v1.0.0
 
 ```ts
 export declare const layer: Layer<Resource, never, never>
+```
+
+Added in v1.0.0
+
+# supervisor
+
+## OtelSupervisor
+
+An effect supervisor that sets up the OpenTelemetry context for the fiber executions.
+
+**Signature**
+
+```ts
+export declare const OtelSupervisor: typeof internal.OtelSupervisor
 ```
 
 Added in v1.0.0
