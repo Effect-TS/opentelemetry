@@ -12,8 +12,8 @@ importers:
         specifier: ^0.17.0
         version: 0.17.0
       '@effect/io':
-        specifier: ^0.36.0
-        version: 0.36.0
+        specifier: ^0.37.0
+        version: 0.37.0
       '@opentelemetry/api':
         specifier: ^1.4.1
         version: 1.4.1
@@ -827,8 +827,8 @@ packages:
       - '@types/node'
     dev: true
 
-  /@effect/io@0.36.0:
-    resolution: {integrity: sha512-4ZjG/OwiJfuj/ldPa8d81HHR1DKrlrQS5/Sl09MSdWL3nf8D0M6DL35dqP5rAlBqU267/oecgaiQr+xy2gcj5A==}
+  /@effect/io@0.37.0:
+    resolution: {integrity: sha512-Y45STkhyBmv/oep/+6kGEces9Btp/cfWkSX5Qqi4ar5MRK13DJrexWF8+jAuixGhXWwWQHHasE9z6w6lFgQWJQ==}
     dependencies:
       '@effect/data': 0.17.0
     dev: false
