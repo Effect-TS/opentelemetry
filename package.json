@@ -55,6 +55,7 @@
       "require": "./build/cjs/*.js"
     }
   },
+  "packageManager": "pnpm@8.6.10",
   "dependencies": {
     "@opentelemetry/resources": "^1.15.1",
     "@opentelemetry/sdk-node": "^0.41.1",
