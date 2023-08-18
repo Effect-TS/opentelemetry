@@ -1,13 +1,16 @@
 import * as Effect from "@effect/io/Effect"
-import { disableRuntimeMetrics } from "@effect/io/Fiber/Runtime/Flags"
 import * as Metric from "@effect/io/Metric"
 import * as internal from "@effect/opentelemetry/internal/metrics"
 import * as Metrics from "@effect/opentelemetry/Metrics"
+import * as it from "@effect/opentelemetry/test/utils/extend"
 import { ValueType } from "@opentelemetry/api"
 import { Resource } from "@opentelemetry/resources"
 
+const findMetric = (metrics: any, name: string) =>
+  metrics.resourceMetrics.scopeMetrics[0].metrics.find((_: any) => _.descriptor.name === name)
+
 describe("Metrics", () => {
-  it("gauge", () =>
+  it.effect("gauge", () =>
     Effect.gen(function*(_) {
       const runtime = yield* _(Effect.runtime<never>())
       const producer = new internal.MetricProducerImpl(
@@ -31,7 +34,8 @@ describe("Metrics", () => {
         "version": "1.0.0"
       })
       assert.equal(object.resourceMetrics.scopeMetrics.length, 1)
-      assert.deepEqual(object.resourceMetrics.scopeMetrics[0].metrics.find((_: any) => _.descriptor.name === "rps"), {
+      const metric = findMetric(object, "rps")
+      assert.deepEqual(metric, {
         "dataPointType": 2,
         "descriptor": {
           "name": "rps",
@@ -43,8 +47,8 @@ describe("Metrics", () => {
         "aggregationTemporality": 1,
         "dataPoints": [
           {
-            "startTime": results.resourceMetrics.scopeMetrics[0].metrics[0].dataPoints[0].startTime,
-            "endTime": results.resourceMetrics.scopeMetrics[0].metrics[0].dataPoints[0].endTime,
+            "startTime": metric.dataPoints[0].startTime,
+            "endTime": metric.dataPoints[0].endTime,
             "attributes": {
               "key": "value"
             },
@@ -52,8 +56,5 @@ describe("Metrics", () => {
           }
         ]
       })
-    }).pipe(
-      Effect.provideLayer(disableRuntimeMetrics),
-      Effect.runPromise
-    ))
+    }))
 })
