@@ -44,6 +44,6 @@ pipe(
   program,
   Effect.awaitAllChildren,
   Effect.provideLayer(MetricsLive),
-  Effect.catchAllCause(Effect.logErrorCause),
+  Effect.catchAllCause(Effect.logError),
   Effect.runFork
 )
