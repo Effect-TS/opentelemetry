@@ -3,20 +3,24 @@ import * as Metric from "@effect/io/Metric"
 import * as internal from "@effect/opentelemetry/internal/metrics"
 import * as Metrics from "@effect/opentelemetry/Metrics"
 import { ValueType } from "@opentelemetry/api"
+import { Resource } from "@opentelemetry/resources"
 
 describe("Metrics", () => {
   it("gauge", () =>
     Effect.runPromise(Effect.gen(function*(_) {
       const runtime = yield* _(Effect.runtime<never>())
-      const producer = new internal.MetricProducerImpl(runtime, {
-        name: "test",
-        version: "1.0.0"
-      })
+      const producer = new internal.MetricProducerImpl(
+        runtime,
+        new Resource({
+          name: "test",
+          version: "1.0.0"
+        })
+      )
       const gauge = Metric.taggedWithLabels(Metric.gauge("rps"), [
         Metrics.integerLabel,
         Metrics.unitLabel("requests")
       ])
-      yield* _(Metric.set(gauge, 10), Effect.tagged("key", "value"))
+      yield* _(Metric.set(gauge, 10), Effect.tagMetrics("key", "value"))
 
       const results = yield* _(Effect.promise(() => producer.collect()))
       console.log(JSON.stringify(results, null, 2))
