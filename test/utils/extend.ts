@@ -1,5 +1,6 @@
 import { pipe } from "@effect/data/Function"
 import * as Effect from "@effect/io/Effect"
+import { disableRuntimeMetrics } from "@effect/io/Fiber/Runtime/Flags"
 import * as V from "vitest"
 
 export type API = V.TestAPI<{}>
@@ -17,6 +18,7 @@ export const effect = (() => {
       () =>
         pipe(
           Effect.suspend(self),
+          Effect.provideSomeLayer(disableRuntimeMetrics),
           Effect.runPromise
         ),
       timeout
@@ -33,6 +35,7 @@ export const effect = (() => {
         () =>
           pipe(
             Effect.suspend(self),
+            Effect.provideSomeLayer(disableRuntimeMetrics),
             Effect.runPromise
           ),
         timeout
@@ -48,6 +51,7 @@ export const effect = (() => {
         () =>
           pipe(
             Effect.suspend(self),
+            Effect.provideSomeLayer(disableRuntimeMetrics),
             Effect.runPromise
           ),
         timeout
