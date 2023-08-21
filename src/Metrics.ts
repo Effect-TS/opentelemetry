@@ -1,3 +1,4 @@
+import type { LazyArg } from "@effect/data/Function"
 import type { Layer } from "@effect/io/Layer"
 import type { MetricLabel } from "@effect/io/Metric/Label"
 import * as internal from "@effect/opentelemetry/internal/metrics"
@@ -33,6 +34,4 @@ export const unitLabel: (unit: string) => MetricLabel = internal.unitLabel
  * @since 1.0.0
  * @category layers
  */
-export const layer: (
-  reader: MetricReader
-) => Layer<Resource, never, never> = internal.layer
+export const layer: (reader: LazyArg<MetricReader>) => Layer<Resource, never, never> = internal.layer
