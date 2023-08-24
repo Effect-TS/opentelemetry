@@ -61,11 +61,18 @@ const summaryLoop = Effect.randomWith((_) => _.nextRange(100, 1000)).pipe(
   Effect.forever
 )
 
+const spawner = Effect.randomWith((_) => _.nextIntBetween(500, 1500)).pipe(
+  Effect.flatMap((_) => Effect.fork(Effect.sleep(_))),
+  Effect.flatMap((_) => _.await()),
+  Effect.forever
+)
+
 const program = Effect.gen(function*(_) {
   yield* _(Effect.fork(incrementCounter))
   yield* _(Effect.fork(timerLoop))
   yield* _(Effect.fork(freqLoop))
   yield* _(Effect.fork(summaryLoop))
+  yield* _(Effect.fork(spawner))
 })
 
 const MetricsLive = Layer.provide(

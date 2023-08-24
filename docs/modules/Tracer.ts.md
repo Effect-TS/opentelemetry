@@ -1,6 +1,6 @@
 ---
 title: Tracer.ts
-nav_order: 3
+nav_order: 4
 parent: Modules
 ---
 
@@ -43,10 +43,9 @@ Added in v1.0.0
 
 ```ts
 export declare const makeExternalSpan: (options: {
-  readonly name: string
   readonly traceId: string
   readonly spanId: string
-  readonly traceFlags?: Otel.TraceFlags
+  readonly traceFlags?: number
   readonly traceState?: string
 }) => ExternalSpan
 ```

@@ -8,7 +8,6 @@ import type * as MetricKey from "@effect/io/Metric/Key"
 import * as MetricKeyType from "@effect/io/Metric/KeyType"
 import * as MetricLabel from "@effect/io/Metric/Label"
 import * as MetricState from "@effect/io/Metric/State"
-import type * as Runtime from "@effect/io/Runtime"
 import * as Resource from "@effect/opentelemetry/Resource"
 import type { HrTime } from "@opentelemetry/api"
 import { ValueType } from "@opentelemetry/api"
@@ -61,10 +60,7 @@ export const unitLabel = (unit: string) =>
 
 /** @internal */
 export class MetricProducerImpl implements MetricProducer {
-  constructor(
-    readonly runtime: Runtime.Runtime<never>,
-    readonly resource: Resources.Resource
-  ) {
+  constructor(readonly resource: Resources.Resource) {
   }
 
   collect(_options?: MetricCollectOptions): Promise<CollectionResult> {
@@ -290,23 +286,25 @@ const currentHrTime = (): HrTime => {
 }
 
 /** @internal */
-const register = (evaluate: LazyArg<MetricReader>) =>
+export const makeProducer = Effect.map(
+  Resource.Resource,
+  (resource): MetricProducer => new MetricProducerImpl(resource)
+)
+
+/** @internal */
+export const registerProducer = (self: MetricProducer, metricReader: LazyArg<MetricReader>) =>
   Effect.acquireRelease(
-    Effect.flatMap(
-      Resource.Resource,
-      (resource) =>
-        Effect.flatMap(
-          Effect.runtime<never>(),
-          (runtime) =>
-            Effect.sync(() => {
-              const reader = evaluate()
-              reader.setMetricProducer(new MetricProducerImpl(runtime, resource))
-              return reader
-            })
-        )
-    ),
+    Effect.sync(() => {
+      const reader = metricReader()
+      reader.setMetricProducer(self)
+      return reader
+    }),
     (reader) => Effect.promise(() => reader.shutdown())
   )
 
 /** @internal */
-export const layer = (reader: LazyArg<MetricReader>) => Layer.scopedDiscard(register(reader))
+export const layer = (evaluate: LazyArg<MetricReader>) =>
+  Layer.scopedDiscard(Effect.flatMap(
+    makeProducer,
+    (producer) => registerProducer(producer, evaluate)
+  ))
