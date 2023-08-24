@@ -12,9 +12,7 @@ const findMetric = (metrics: any, name: string) =>
 describe("Metrics", () => {
   it.effect("gauge", () =>
     Effect.gen(function*(_) {
-      const runtime = yield* _(Effect.runtime<never>())
       const producer = new internal.MetricProducerImpl(
-        runtime,
         new Resource({
           name: "test",
           version: "1.0.0"
