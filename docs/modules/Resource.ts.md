@@ -44,8 +44,8 @@ Added in v1.0.0
 ```ts
 export declare const layer: (config: {
   readonly serviceName: string
-  readonly serviceVersion?: string | undefined
-  readonly attributes?: Attributes | undefined
+  readonly serviceVersion?: string
+  readonly attributes?: Resources.ResourceAttributes
 }) => Layer.Layer<never, never, Resource>
 ```
 
