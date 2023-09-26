@@ -12,11 +12,6 @@ Added in v1.0.0
 
 <h2 class="text-delta">Table of contents</h2>
 
-- [labels](#labels)
-  - [aggregationTemporalityLabel](#aggregationtemporalitylabel)
-  - [incrementalOnlyLabel](#incrementalonlylabel)
-  - [integerLabel](#integerlabel)
-  - [unitLabel](#unitlabel)
 - [layers](#layers)
   - [layer](#layer)
 - [producer](#producer)
@@ -24,48 +19,6 @@ Added in v1.0.0
   - [registerProducer](#registerproducer)
 
 ---
-
-# labels
-
-## aggregationTemporalityLabel
-
-**Signature**
-
-```ts
-export declare const aggregationTemporalityLabel: (value: 'delta' | 'cumulative') => MetricLabel
-```
-
-Added in v1.0.0
-
-## incrementalOnlyLabel
-
-**Signature**
-
-```ts
-export declare const incrementalOnlyLabel: MetricLabel
-```
-
-Added in v1.0.0
-
-## integerLabel
-
-**Signature**
-
-```ts
-export declare const integerLabel: MetricLabel
-```
-
-Added in v1.0.0
-
-## unitLabel
-
-**Signature**
-
-```ts
-export declare const unitLabel: (unit: string) => MetricLabel
-```
-
-Added in v1.0.0
 
 # layers
 
