@@ -4,8 +4,8 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@effect/io": ["./build/esm/index.js"],
-      "@effect/io/*": ["./build/esm/*"]
+      "@effect/opentelemetry": ["./build/esm/index.js"],
+      "@effect/opentelemetry/*": ["./build/esm/*"]
     }
   },
   "include": ["./build/esm/**/*.js"]

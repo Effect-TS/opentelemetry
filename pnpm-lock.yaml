@@ -40,18 +40,12 @@ devDependencies:
   '@effect/build-utils':
     specifier: ^0.1.4
     version: 0.1.4
-  '@effect/data':
-    specifier: ^0.18.6
-    version: 0.18.6
   '@effect/docgen':
     specifier: ^0.1.7
     version: 0.1.7(@types/node@20.7.0)(typescript@5.2.2)
   '@effect/eslint-plugin':
     specifier: ^0.1.2
     version: 0.1.2
-  '@effect/io':
-    specifier: ^0.41.0
-    version: 0.41.0(@effect/data@0.18.6)
   '@effect/language-service':
     specifier: ^0.0.21
     version: 0.0.21
@@ -94,6 +88,9 @@ devDependencies:
   concurrently:
     specifier: ^8.2.1
     version: 8.2.1
+  effect:
+    specifier: 2.0.0-next.37
+    version: 2.0.0-next.37
   eslint:
     specifier: ^8.50.0
     version: 8.50.0
@@ -724,10 +721,6 @@ packages:
     hasBin: true
     dev: true
 
-  /@effect/data@0.18.6:
-    resolution: {integrity: sha512-gfjorojxEJ0KKxwluZLoAsPv1kkHi7MV1vQDlibClfdtC9iY9JqkJo+BjWTKsU0zV4mW2inmTZQCF72KKbn2tQ==}
-    dev: true
-
   /@effect/docgen@0.1.7(@types/node@20.7.0)(typescript@5.2.2):
     resolution: {integrity: sha512-HFvw3k/B7i4o73GIWELktbHs2SX5xT1JFjxxnXp/k6AcWfc4Bf4RMaRe1huAwCpv3VvZZFQMkhJ48ee4YRGaOQ==}
     engines: {node: '>=16.17.1'}
@@ -757,14 +750,6 @@ packages:
       '@dprint/formatter': 0.2.0
       '@dprint/typescript': 0.85.1
       diff: 5.1.0
-    dev: true
-
-  /@effect/io@0.41.0(@effect/data@0.18.6):
-    resolution: {integrity: sha512-gCjntDN3lbUh8wVQnwNoYlugNlWESZWsVkBFPfmOf2439EptHkvdEDNA47vR4OSB3lcqhH+J5jJHi2KWnEbRew==}
-    peerDependencies:
-      '@effect/data': ^0.18.5
-    dependencies:
-      '@effect/data': 0.18.6
     dev: true
 
   /@effect/language-service@0.0.21:
@@ -2791,6 +2776,10 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
+  /effect@2.0.0-next.37:
+    resolution: {integrity: sha512-poONzql/x5pn9ZtsmabqiPPZPuiGJoMUoZccGMaCZWYY1DSD8klYNviQEker1BDU0szr+J7bmyFFjgdYT3BVfQ==}
+    dev: true
+
   /electron-to-chromium@1.4.529:
     resolution: {integrity: sha512-6uyPyXTo8lkv8SWAmjKFbG42U073TXlzD4R8rW3EzuznhFS2olCIAfjjQtV2dV2ar/vRF55KUd3zQYnCB0dd3A==}
     dev: true
@@ -2981,7 +2970,7 @@ packages:
       debug: 4.3.4
       enhanced-resolve: 5.15.0
       eslint: 8.50.0
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.7.3)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.50.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.7.3)(eslint-import-resolver-typescript@3.6.1)(eslint@8.50.0)
       eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.3)(eslint-import-resolver-typescript@3.6.1)(eslint@8.50.0)
       fast-glob: 3.3.1
       get-tsconfig: 4.7.2
@@ -3019,6 +3008,35 @@ packages:
       debug: 3.2.7
       eslint: 8.50.0
       eslint-import-resolver-node: 0.3.9
+      eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.7.3)(eslint-plugin-import@2.28.1)(eslint@8.50.0)
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /eslint-module-utils@2.8.0(@typescript-eslint/parser@6.7.3)(eslint-import-resolver-typescript@3.6.1)(eslint@8.50.0):
+    resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
+    engines: {node: '>=4'}
+    peerDependencies:
+      '@typescript-eslint/parser': '*'
+      eslint: '*'
+      eslint-import-resolver-node: '*'
+      eslint-import-resolver-typescript: '*'
+      eslint-import-resolver-webpack: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
+      eslint:
+        optional: true
+      eslint-import-resolver-node:
+        optional: true
+      eslint-import-resolver-typescript:
+        optional: true
+      eslint-import-resolver-webpack:
+        optional: true
+    dependencies:
+      '@typescript-eslint/parser': 6.7.3(eslint@8.50.0)(typescript@5.2.2)
+      debug: 3.2.7
+      eslint: 8.50.0
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.7.3)(eslint-plugin-import@2.28.1)(eslint@8.50.0)
     transitivePeerDependencies:
       - supports-color
