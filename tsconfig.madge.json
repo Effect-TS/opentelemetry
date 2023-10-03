@@ -2,11 +2,7 @@
   "compilerOptions": {
     "noEmit": true,
     "allowJs": true,
-    "baseUrl": ".",
-    "paths": {
-      "@effect/opentelemetry": ["./build/esm/index.js"],
-      "@effect/opentelemetry/*": ["./build/esm/*"]
-    }
+    "baseUrl": "."
   },
-  "include": ["./build/esm/**/*.js"]
+  "include": ["./dist/**/*.esm.js"]
 }

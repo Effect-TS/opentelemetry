@@ -1,11 +1,17 @@
 coverage/
 *.tsbuildinfo
 node_modules/
-yarn-error.log
 .ultra.cache.json
 .DS_Store
 tmp/
 build/
 dist/
-.cache/
 .direnv/
+
+# files
+/dist
+/internal
+/Metrics
+/NodeSdk
+/Resource
+/Tracer
