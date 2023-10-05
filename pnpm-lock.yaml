@@ -40,8 +40,8 @@ devDependencies:
     specifier: ^0.2.0
     version: 0.2.0(@babel/core@7.23.0)
   '@effect/build-utils':
-    specifier: ^0.1.5
-    version: 0.1.5
+    specifier: ^0.1.6
+    version: 0.1.6
   '@effect/docgen':
     specifier: ^0.1.8
     version: 0.1.8(@types/node@20.8.2)(typescript@5.2.2)
@@ -94,8 +94,8 @@ devDependencies:
     specifier: ^8.2.1
     version: 8.2.1
   effect:
-    specifier: 2.0.0-next.44
-    version: 2.0.0-next.44
+    specifier: 2.0.0-next.45
+    version: 2.0.0-next.45
   eslint:
     specifier: ^8.50.0
     version: 8.50.0
@@ -734,8 +734,8 @@ packages:
       '@babel/core': 7.23.0
     dev: true
 
-  /@effect/build-utils@0.1.5:
-    resolution: {integrity: sha512-j1ggCQnhIQ4TZaEAc2xyQXC2ChWsbIziwxDwKqBH6xL2VZDCEpxkNKPhN66QLJFVOuv/POUI9mzOKRZVde6LVQ==}
+  /@effect/build-utils@0.1.6:
+    resolution: {integrity: sha512-WOtpszUuQiTJsO4x+9ek28I99qvCdLsp6em75KWJXt4kRb41/1F3UsljZ+F0BGsCQWlPINw0nDTRSd6LRRWlMw==}
     engines: {node: '>=16.17.1'}
     hasBin: true
     dev: true
@@ -2928,8 +2928,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /effect@2.0.0-next.44:
-    resolution: {integrity: sha512-0oBnoqWW5u1b0AhmDiGZ/TX8La697YcCrTacEBU7v+gKZeH+bbVJwPEqesGagot0sErBrvyE0H9h7Si4lHhkuA==}
+  /effect@2.0.0-next.45:
+    resolution: {integrity: sha512-cSapc9midRXsOJUx8o9lIzTPJW2NSviQ1jjHlSZM8UJbteLLqcb02ung+4pLjGyouP2AMQlgo02F7b2MvTWxcQ==}
     dev: true
 
   /electron-to-chromium@1.4.540:
