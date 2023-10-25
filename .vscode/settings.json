@@ -55,6 +55,7 @@
     "Metrics": true,
     "NodeSdk": true,
     "Resource": true,
-    "Tracer": true
+    "Tracer": true,
+    "WebSdk": true
   }
 }
