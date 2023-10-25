@@ -28,7 +28,7 @@ Added in v1.0.0
 **Signature**
 
 ```ts
-export declare const layer: (evaluate: LazyArg<Configuration>) => Layer.Layer<Resource, never, never>
+export declare const layer: (evaluate: LazyArg<Configuration>) => Layer.Layer<never, never, Resource.Resource>
 ```
 
 Added in v1.0.0
@@ -43,7 +43,7 @@ Added in v1.0.0
 export declare const layerTracerProvider: (
   processor: SpanProcessor,
   config?: Omit<TracerConfig, 'resource'>
-) => Layer.Layer<Resource, never, TracerProvider>
+) => Layer.Layer<Resource.Resource, never, TracerProvider>
 ```
 
 Added in v1.0.0
@@ -59,6 +59,11 @@ export interface Configuration {
   readonly spanProcessor?: SpanProcessor
   readonly tracerConfig?: Omit<TracerConfig, 'resource'>
   readonly metricReader?: MetricReader
+  readonly resource: {
+    readonly serviceName: string
+    readonly serviceVersion?: string
+    readonly attributes?: Resources.ResourceAttributes
+  }
 }
 ```
 
