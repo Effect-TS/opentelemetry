@@ -1,10 +1,10 @@
 ---
-title: NodeSdk.ts
-nav_order: 3
+title: WebSdk.ts
+nav_order: 6
 parent: Modules
 ---
 
-## NodeSdk overview
+## WebSdk overview
 
 Added in v1.0.0
 

@@ -17,6 +17,7 @@ Added in v1.0.0
   - [From "@effect/opentelemetry/NodeSdk"](#from-effectopentelemetrynodesdk)
   - [From "@effect/opentelemetry/Resource"](#from-effectopentelemetryresource)
   - [From "@effect/opentelemetry/Tracer"](#from-effectopentelemetrytracer)
+  - [From "@effect/opentelemetry/WebSdk"](#from-effectopentelemetrywebsdk)
 
 ---
 
@@ -24,7 +25,7 @@ Added in v1.0.0
 
 ## From "@effect/opentelemetry/Metrics"
 
-Re-exports all named exports from the "@effect/opentelemetry/Metrics" module as "Metrics".
+Re-exports all named exports from the "@effect/opentelemetry/Metrics" module as `Metrics`.
 
 **Signature**
 
@@ -36,7 +37,7 @@ Added in v1.0.0
 
 ## From "@effect/opentelemetry/NodeSdk"
 
-Re-exports all named exports from the "@effect/opentelemetry/NodeSdk" module as "NodeSdk".
+Re-exports all named exports from the "@effect/opentelemetry/NodeSdk" module as `NodeSdk`.
 
 **Signature**
 
@@ -48,7 +49,7 @@ Added in v1.0.0
 
 ## From "@effect/opentelemetry/Resource"
 
-Re-exports all named exports from the "@effect/opentelemetry/Resource" module as "Resource".
+Re-exports all named exports from the "@effect/opentelemetry/Resource" module as `Resource`.
 
 **Signature**
 
@@ -60,12 +61,24 @@ Added in v1.0.0
 
 ## From "@effect/opentelemetry/Tracer"
 
-Re-exports all named exports from the "@effect/opentelemetry/Tracer" module as "Tracer".
+Re-exports all named exports from the "@effect/opentelemetry/Tracer" module as `Tracer`.
 
 **Signature**
 
 ```ts
 export * as Tracer from '@effect/opentelemetry/Tracer'
+```
+
+Added in v1.0.0
+
+## From "@effect/opentelemetry/WebSdk"
+
+Re-exports all named exports from the "@effect/opentelemetry/WebSdk" module as `WebSdk`.
+
+**Signature**
+
+```ts
+export * as WebSdk from '@effect/opentelemetry/WebSdk'
 ```
 
 Added in v1.0.0
