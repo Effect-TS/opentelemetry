@@ -5,11 +5,12 @@ import type {
   CollectionResult,
   DataPoint,
   InstrumentDescriptor,
+  MetricCollectOptions,
   MetricData,
+  MetricProducer,
   MetricReader
 } from "@opentelemetry/sdk-metrics"
 import { AggregationTemporality, DataPointType, InstrumentType } from "@opentelemetry/sdk-metrics"
-import type { MetricCollectOptions, MetricProducer } from "@opentelemetry/sdk-metrics/build/src/export/MetricProducer"
 import * as Effect from "effect/Effect"
 import type { LazyArg } from "effect/Function"
 import * as HashSet from "effect/HashSet"
