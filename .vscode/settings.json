@@ -48,14 +48,4 @@
     "**/target": true
   },
   "files.insertFinalNewline": true,
-  "nixEnvSelector.nixFile": "${workspaceRoot}/flake.nix",
-  "files.exclude": {
-    "dist": true,
-    "internal": true,
-    "Metrics": true,
-    "NodeSdk": true,
-    "Resource": true,
-    "Tracer": true,
-    "WebSdk": true
-  }
 }

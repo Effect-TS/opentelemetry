@@ -13,72 +13,72 @@ Added in v1.0.0
 <h2 class="text-delta">Table of contents</h2>
 
 - [exports](#exports)
-  - [From "@effect/opentelemetry/Metrics"](#from-effectopentelemetrymetrics)
-  - [From "@effect/opentelemetry/NodeSdk"](#from-effectopentelemetrynodesdk)
-  - [From "@effect/opentelemetry/Resource"](#from-effectopentelemetryresource)
-  - [From "@effect/opentelemetry/Tracer"](#from-effectopentelemetrytracer)
-  - [From "@effect/opentelemetry/WebSdk"](#from-effectopentelemetrywebsdk)
+  - [From "./Metrics.js"](#from-metricsjs)
+  - [From "./NodeSdk.js"](#from-nodesdkjs)
+  - [From "./Resource.js"](#from-resourcejs)
+  - [From "./Tracer.js"](#from-tracerjs)
+  - [From "./WebSdk.js"](#from-websdkjs)
 
 ---
 
 # exports
 
-## From "@effect/opentelemetry/Metrics"
+## From "./Metrics.js"
 
-Re-exports all named exports from the "@effect/opentelemetry/Metrics" module as `Metrics`.
+Re-exports all named exports from the "./Metrics.js" module as `Metrics`.
 
 **Signature**
 
 ```ts
-export * as Metrics from '@effect/opentelemetry/Metrics'
+export * as Metrics from "./Metrics.js"
 ```
 
 Added in v1.0.0
 
-## From "@effect/opentelemetry/NodeSdk"
+## From "./NodeSdk.js"
 
-Re-exports all named exports from the "@effect/opentelemetry/NodeSdk" module as `NodeSdk`.
+Re-exports all named exports from the "./NodeSdk.js" module as `NodeSdk`.
 
 **Signature**
 
 ```ts
-export * as NodeSdk from '@effect/opentelemetry/NodeSdk'
+export * as NodeSdk from "./NodeSdk.js"
 ```
 
 Added in v1.0.0
 
-## From "@effect/opentelemetry/Resource"
+## From "./Resource.js"
 
-Re-exports all named exports from the "@effect/opentelemetry/Resource" module as `Resource`.
+Re-exports all named exports from the "./Resource.js" module as `Resource`.
 
 **Signature**
 
 ```ts
-export * as Resource from '@effect/opentelemetry/Resource'
+export * as Resource from "./Resource.js"
 ```
 
 Added in v1.0.0
 
-## From "@effect/opentelemetry/Tracer"
+## From "./Tracer.js"
 
-Re-exports all named exports from the "@effect/opentelemetry/Tracer" module as `Tracer`.
+Re-exports all named exports from the "./Tracer.js" module as `Tracer`.
 
 **Signature**
 
 ```ts
-export * as Tracer from '@effect/opentelemetry/Tracer'
+export * as Tracer from "./Tracer.js"
 ```
 
 Added in v1.0.0
 
-## From "@effect/opentelemetry/WebSdk"
+## From "./WebSdk.js"
 
-Re-exports all named exports from the "@effect/opentelemetry/WebSdk" module as `WebSdk`.
+Re-exports all named exports from the "./WebSdk.js" module as `WebSdk`.
 
 **Signature**
 
 ```ts
-export * as WebSdk from '@effect/opentelemetry/WebSdk'
+export * as WebSdk from "./WebSdk.js"
 ```
 
 Added in v1.0.0

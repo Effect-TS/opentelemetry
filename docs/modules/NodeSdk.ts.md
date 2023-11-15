@@ -42,7 +42,7 @@ Added in v1.0.0
 ```ts
 export declare const layerTracerProvider: (
   processor: SpanProcessor,
-  config?: Omit<TracerConfig, 'resource'>
+  config?: Omit<TracerConfig, "resource">
 ) => Layer.Layer<Resource.Resource, never, TracerProvider>
 ```
 
@@ -57,7 +57,7 @@ Added in v1.0.0
 ```ts
 export interface Configuration {
   readonly spanProcessor?: SpanProcessor
-  readonly tracerConfig?: Omit<TracerConfig, 'resource'>
+  readonly tracerConfig?: Omit<TracerConfig, "resource">
   readonly metricReader?: MetricReader
   readonly resource: {
     readonly serviceName: string

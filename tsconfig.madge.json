@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "noEmit": true,
-    "allowJs": true,
-    "baseUrl": "."
-  },
-  "include": ["./dist/**/*.esm.js"]
-}
