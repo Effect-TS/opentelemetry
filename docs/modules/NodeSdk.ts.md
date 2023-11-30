@@ -28,7 +28,10 @@ Added in v1.0.0
 **Signature**
 
 ```ts
-export declare const layer: (evaluate: LazyArg<Configuration>) => Layer.Layer<never, never, Resource.Resource>
+export declare const layer: {
+  (evaluate: LazyArg<Configuration>): Layer.Layer<never, never, Resource.Resource>
+  <R, E>(evaluate: Effect.Effect<R, E, Configuration>): Layer.Layer<R, E, Resource.Resource>
+}
 ```
 
 Added in v1.0.0
