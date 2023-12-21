@@ -37,7 +37,7 @@ Added in v1.0.0
 **Signature**
 
 ```ts
-export declare const currentOtelSpan: Effect<never, never, Option.Option<Otel.Span>>
+export declare const currentOtelSpan: Effect<never, NoSuchElementException, Otel.Span>
 ```
 
 Added in v1.0.0
